@@ -21,7 +21,6 @@ $nameofmother=$_POST['nameofmother'];
 $birthofmother=$_POST['birthofmother'];
 $idofmother=$_POST['idofmother'];
 $padd=$_POST['padd'];
-$province=$_POST['province'];
 $postaladd=$_POST['postaladd'];
 $mobnumber=$_POST['mobnumber'];
 $email=$_POST['email'];
@@ -37,8 +36,8 @@ $query-> execute();
 {
 
 
-$sql="insert into application(UserID,ApplicationID,DateofBirth,Gender,FullName,PlaceofBirth,NameofFather,BirthofFather,IDofFather,NameofMother,BirthofMother,IDofMother,PermanentAdd,PostalAdd,MobileNumber,Email,province)values
-(:uid,:appnumber,:dob,:gender,:fname,:pob,:nameoffather,:birthoffather,:idoffather,:nameofmother,:birthofmother,:idofmother,:padd,:postaladd,:mobnumber,:email,:province)";
+$sql="insert into application(UserID,ApplicationID,DateofBirth,Gender,FullName,PlaceofBirth,NameofFather,BirthofFather,IDofFather,NameofMother,BirthofMother,IDofMother,PermanentAdd,PostalAdd,MobileNumber,Email)values
+(:uid,:appnumber,:dob,:gender,:fname,:pob,:nameoffather,:birthoffather,:idoffather,:nameofmother,:birthofmother,:idofmother,:padd,:postaladd,:mobnumber,:email)";
 $query=$dbh->prepare($sql);
 $query->bindParam(':uid',$uid,PDO::PARAM_STR);
 $query->bindParam(':appnumber',$appnumber,PDO::PARAM_STR);
@@ -56,7 +55,6 @@ $query->bindParam(':padd',$padd,PDO::PARAM_STR);
 $query->bindParam(':postaladd',$postaladd,PDO::PARAM_STR);
 $query->bindParam(':mobnumber',$mobnumber,PDO::PARAM_STR);
 $query->bindParam(':email',$email,PDO::PARAM_STR);
-$query->bindParam(':province',$province,PDO::PARAM_STR);
  $query->execute();
 
    $LastInsertId=$dbh->lastInsertId();
@@ -220,33 +218,6 @@ echo "<script>alert('Date of Birth and Father Name already exists. Please try ag
                                                                 </div>
                                                             </div>
                                                         </div>
-
-                                                        <div class="form-group-inner">
-                                                        <div class="row">
-                                                                <div class="col-lg-3">
-                                                                    <label class="login2 pull-right pull-right-pro">Province</label>
-                                                                </div>
-                                                        <div class="login-input-area" >
-				<p class="input" ><select style="width:750px;height:30px;" name="province" required="true">
-		<option></option>
-			<option>Bulawayo</option>
-			<option>Harare</option>
-			<option>Manicaland</option>
-			<option>MashonalandCentral</option>
-			<option>MashonalandEast</option>
-			<option>MashonalandWest</option>
-			<option>Masvingo</option>
-			<option>MatebelelandNorth</option>
-			<option>MatebelelandSouth</option>
-			<option>Midlands</option>
-			</select></p>
-</div>
-</div>
-</div>
-
-
-
-
                                                         <div class="form-group-inner">
                                                             <div class="row">
                                                                 <div class="col-lg-3">
